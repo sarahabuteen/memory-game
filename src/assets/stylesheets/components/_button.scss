@@ -1,3 +1,51 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the button component.
 // -----------------------------------------------------------------------------
+
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn:active:focus,
+.btn:focus,
+button.active.focus,
+button.active:focus,
+button.focus,
+button:active.focus,
+button:active:focus,
+button:focus,
+[role="button"]:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.btn-light {
+  background-color: $light-blue;
+  border-color: $light-blue;
+  color: $white;
+  border-radius: 25px;
+  height: 45px;
+  font-weight: 700;
+  font-size: 21px;
+  &:hover {
+    background-color: $mid-blue;
+    color: $white;
+    border-color: $mid-blue;
+  }
+}
+
+.btn-orange {
+  background-color: $orange;
+  border-color: $orange;
+  color: $white;
+  border-radius: 25px;
+  height: 45px;
+  font-weight: 700;
+  font-size: 21px;
+  &:hover {
+    opacity: 0.8;
+    background-color: $orange;
+    color: $white;
+    border-color: $orange;
+  }
+}
