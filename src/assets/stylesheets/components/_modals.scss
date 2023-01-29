@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the modals component.
+// -----------------------------------------------------------------------------
+
+.modal {
+  --bs-modal-width: 550px;
+  --bs-modal-border-color: none;
+  --bs-modal-box-shadow: none;
+  --bs-modal-border-radius: 1rem;
+  --bs-modal-padding: 3rem;
+  .modal-content {
+    background-color: $silver;
+  }
+}
