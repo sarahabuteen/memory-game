@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 import Logo from '../../components/logo';
 
 function Home() {
   return (
     <main className="dark-bg h-100 d-flex flex-column justify-content-center align-items-center">
-      <section className="pb-5">
+      <header className="pb-5">
         <Container>
           <Row>
             <Col md={12} className="d-flex align-items-center justify-content-center">
@@ -13,7 +14,7 @@ function Home() {
             </Col>
           </Row>
         </Container>
-      </section>
+      </header>
       <section className="w-35 pt-3">
         <Container>
           <div className="light-silver-bg border-radius-20 w-100 p-md-5 p-4">
@@ -58,7 +59,7 @@ function Home() {
             </Row>
             <Row>
               <Col md={12}>
-                <button type="button" className="btn btn-orange w-100">Start Game</button>
+                <Link to="/game" className="btn btn-orange w-100">Start Game</Link>
               </Col>
             </Row>
           </div>

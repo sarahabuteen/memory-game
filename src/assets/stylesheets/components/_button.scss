@@ -32,6 +32,14 @@ button:focus,
     color: $white;
     border-color: $mid-blue;
   }
+  &.btn-sm {
+    font-size: 17px;
+    min-width: 130px;
+    color: $dark-navy;
+    &:hover {
+      color: $white;
+    }
+  }
 }
 
 .btn-orange {
@@ -47,5 +55,9 @@ button:focus,
     background-color: $orange;
     color: $white;
     border-color: $orange;
+  }
+  &.btn-sm {
+    font-size: 17px;
+    min-width: 130px;
   }
 }

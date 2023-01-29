@@ -1,3 +1,30 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the footer of the site/application.
 // -----------------------------------------------------------------------------
+
+footer {
+  .info-card {
+    background-color: $baby-blue;
+    position:relative;
+    border-radius: 10px;
+    min-height: 60px;
+    padding: 0 20px;
+    &.is-active {
+      background-color: $orange;
+      &:before {
+        content: "";
+        position: absolute;
+        border-style: solid;
+        border-width: 18px 15px;
+        border-color: transparent transparent $orange transparent;
+        top: -18px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  p {
+    letter-spacing: 5px;
+    font-size: 13px;
+  }
+}
