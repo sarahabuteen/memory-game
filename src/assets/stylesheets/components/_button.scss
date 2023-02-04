@@ -40,6 +40,10 @@ button:focus,
       color: $white;
     }
   }
+  &.is-active {
+    background-color: $dark-navy;
+    border-color: $dark-navy;
+  }
 }
 
 .btn-orange {

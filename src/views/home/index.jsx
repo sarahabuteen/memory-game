@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Col, Container, Row } from 'reactstrap';
 import Logo from '../../components/logo';
+import { getGameSettings } from '../../redux/actions/settings.actions';
+import options from './data';
+import Option from './option';
 
 function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGameSettings());
+  }, []);
   return (
     <main className="dark-bg h-100 d-flex flex-column justify-content-center align-items-center">
       <header className="pb-5">
@@ -18,45 +27,24 @@ function Home() {
       <section className="w-35 pt-3">
         <Container>
           <div className="light-silver-bg border-radius-20 w-100 p-md-5 p-4">
-            <Row className="mb-4">
-              <Col md={12}>
-                <h6 className="text-light-navy fw-bold pb-1">Select Theme</h6>
-              </Col>
-              <Col xs={6}>
-                <button type="button" className="btn btn-light w-100">Numbers</button>
-              </Col>
-              <Col xs={6}>
-                <button type="button" className="btn btn-light w-100">Icons</button>
-              </Col>
-            </Row>
-            <Row className="mb-4">
-              <Col md={12}>
-                <h6 className="text-light-navy fw-bold pb-1">Numbers of Players</h6>
-              </Col>
-              <Col xs={3}>
-                <button type="button" className="btn btn-light w-100">1</button>
-              </Col>
-              <Col xs={3}>
-                <button type="button" className="btn btn-light w-100">2</button>
-              </Col>
-              <Col xs={3}>
-                <button type="button" className="btn btn-light w-100">3</button>
-              </Col>
-              <Col xs={3}>
-                <button type="button" className="btn btn-light w-100">4</button>
-              </Col>
-            </Row>
-            <Row className="mb-4">
-              <Col md={12}>
-                <h6 className="text-light-navy fw-bold pb-1">Grid Size</h6>
-              </Col>
-              <Col xs={6}>
-                <button type="button" className="btn btn-light w-100">4x4</button>
-              </Col>
-              <Col xs={6}>
-                <button type="button" className="btn btn-light w-100">6x6</button>
-              </Col>
-            </Row>
+            <Option
+              title="Select Theme"
+              colSize={6}
+              data={options.themes}
+              optionTitle="theme"
+            />
+            <Option
+              title="Numbers of Players"
+              colSize={3}
+              data={options.numberOfPlayers}
+              optionTitle="numberOfPlayers"
+            />
+            <Option
+              title="Grid Size"
+              colSize={6}
+              data={options.gridSizes}
+              optionTitle="gridSize"
+            />
             <Row>
               <Col md={12}>
                 <Link to="/game" className="btn btn-orange w-100">Start Game</Link>

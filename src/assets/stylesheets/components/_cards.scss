@@ -8,6 +8,12 @@
   border-radius: 10px;
   min-height: 60px;
   padding: 0 20px;
+  h6 {
+    color: $light-navy;
+  }
+  h3 {
+    color: $dark-navy;
+  }
   &.is-active {
     background-color: $orange;
     &:before {
@@ -19,6 +25,14 @@
       top: -18px;
       left: 50%;
       transform: translate(-50%, -50%);
+    }
+  }
+  &.is-highlighted {
+    background-color: $dark-blue;
+  }
+  &.is-active, &.is-highlighted {
+    h6, h3 {
+      color: $white;
     }
   }
 }

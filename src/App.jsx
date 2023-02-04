@@ -1,5 +1,7 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import store from './redux/storeConfig';
 import Game from './views/game';
 import Home from './views/home';
 
@@ -16,7 +18,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   );
 }
 
