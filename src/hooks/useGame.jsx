@@ -17,27 +17,28 @@ const useGame = ({ settings }) => {
     };
   }, []);
 
-  const hideCards = () => {
+  const hideCards = (newBoard) => {
     const timeout = setTimeout(() => {
-      const newBoard = [...board];
-      newBoard.forEach((card) => { card.status = null; });
-      setBoard(newBoard);
-    }, 5000);
+      const clonedBoard = [...newBoard];
+      clonedBoard.forEach((card) => { card.status = null; });
+      setBoard(clonedBoard);
+    }, 3000);
     return () => {
       clearTimeout(timeout);
     };
   };
 
   useEffect(() => {
-    hideCards();
+    hideCards(board);
   }, []);
 
   const restartGame = () => {
-    setBoard(generateCards(gridSizes[settings.gridSize]));
+    const newBoard = generateCards(gridSizes[settings.gridSize]);
+    setBoard(newBoard);
     setInactiveCardId(null);
     disableBoard(false);
     setPlayersData(setPlayers(settings.numberOfPlayers));
-    hideCards();
+    hideCards(newBoard);
   };
 
   const updatePlayersData = (gainedPoint) => {
