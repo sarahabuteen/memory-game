@@ -36,8 +36,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://memory-game-git-main-sarahabuteen.vercel.app/)
-- Live Site URL: [Add live site URL here](https://memory-game-sarahabuteen.vercel.app/)
+- Live Site URL: [https://memory-game-sarahabuteen.vercel.app/](https://memory-game-sarahabuteen.vercel.app/)
 
 ### Built with
 
