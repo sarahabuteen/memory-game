@@ -20,7 +20,7 @@ function ResultsModal({
   const restart = () => {
     toggleModal();
     restartGame();
-    if (data?.length === 1) {
+    if (data?.players?.length === 1) {
       resetTimer();
       resumeTimer();
     }
