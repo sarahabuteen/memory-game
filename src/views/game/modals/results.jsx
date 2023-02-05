@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Modal, ModalBody } from 'reactstrap';
-import { resetGameSettings } from '../../redux/actions/settings.actions';
-import InfoCard from './cards/info-card';
+import { resetGameSettings } from '../../../redux/actions/settings.actions';
+import InfoCard from '../cards/info-card';
 
 function ResultsModal({
   isModalOpen, toggleModal, data, timeElapsed, restartGame, resetTimer, resumeTimer,

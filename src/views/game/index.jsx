@@ -1,20 +1,18 @@
 import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
 import { Col, Container, Row } from 'reactstrap';
-import Logo from '../../components/logo';
 import { formatTimer } from '../../helpers';
 import useGame from '../../hooks/useGame';
 import useTimer from '../../hooks/useTimer';
 import GameCard from './cards/game-card';
 import InfoCard from './cards/info-card';
-import ResultsModal from './results-modal';
-import { resetGameSettings } from '../../redux/actions/settings.actions';
+import GameHeader from './header';
+import ResultsModal from './modals/results';
 
 function Game() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const settings = useSelector((state) => state.settings);
   const {
     board, handleFlip, playersData, restartGame,
@@ -23,13 +21,6 @@ function Game() {
     timer, stopTimer, resumeTimer, resetTimer,
   } = useTimer(playersData.players.length === 1);
   const [isModalOpen, toggleModal] = useState(false);
-
-  const restartGameHandler = () => {
-    if (playersData.players.length === 1) {
-      resetTimer();
-    }
-    restartGame();
-  };
 
   useEffect(() => {
     if (board?.length === 0) return;
@@ -40,27 +31,10 @@ function Game() {
       toggleModal(true);
     }
   }, [board]);
-
-  const setupNewGame = () => {
-    navigate('/');
-    dispatch(resetGameSettings());
-  };
   return (
     <>
       <main className="light-silver-bg h-100 d-flex flex-column">
-        <header className="pt-5">
-          <Container>
-            <Row>
-              <Col md={6}>
-                <Logo color="#152938" />
-              </Col>
-              <Col md={6} className="d-flex justify-content-end">
-                <button type="button" className="btn btn-sm btn-orange me-2" onClick={restartGameHandler}>Restart</button>
-                <button type="button" className="btn btn-sm btn-light" onClick={setupNewGame}>New Game</button>
-              </Col>
-            </Row>
-          </Container>
-        </header>
+        <GameHeader stopTimer={stopTimer} restartGame={restartGame} resetTimer={resetTimer} resumeTimer={resumeTimer} data={playersData} />
         <section className="game-board">
           <Container>
             <Row>
@@ -99,11 +73,11 @@ function Game() {
                     return (
                       <Col xs={3} key={player.id}>
                         <InfoCard
-                          title={`Player ${player.id + 1}`}
+                          title={isMobile ? `P${player.id + 1}` : `Player ${player.id + 1}`}
                           value={player.points}
                           isActive={player.id === playersData?.activePlayer}
                         />
-                        {player.id === playersData?.activePlayer
+                        {player.id === playersData?.activePlayer && !isMobile
                         && <p className="mb-0 mt-3 text-dark-blue text-uppercase fw-bold text-center">Current turn</p>}
                       </Col>
                     );

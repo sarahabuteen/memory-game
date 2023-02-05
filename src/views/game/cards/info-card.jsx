@@ -5,7 +5,7 @@ function InfoCard({
   value, title, isActive, isHighlighted,
 }) {
   return (
-    <div className={classNames('info-card d-flex align-items-center justify-content-between w-100 mb-3', {
+    <div className={classNames('info-card w-100 mb-3', {
       'is-active': isActive,
       'is-highlighted': isHighlighted,
     })}
