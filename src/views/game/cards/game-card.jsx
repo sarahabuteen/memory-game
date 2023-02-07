@@ -28,14 +28,16 @@ function GameCard({
         'is-visible': status === 'visible',
       })}
     >
-      <div className="card-face front" />
-      <div
-        className={classNames(
-          'card-face back',
-          settings.gridSize === '6x6' ? 'small' : 'large',
-        )}
-      >
-        {cardContent}
+      <div className="card-inner">
+        <div className="front" />
+        <div
+          className={classNames(
+            'back',
+            settings.gridSize === '6x6' ? 'small' : 'large',
+          )}
+        >
+          {cardContent}
+        </div>
       </div>
     </div>
   );
